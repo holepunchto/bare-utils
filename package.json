@@ -1,5 +1,5 @@
 {
-  "name": "bare-util",
+  "name": "bare-utils",
   "version": "1.0.0",
   "description": "Node.js-compatible utility functions for Bare",
   "exports": {
@@ -13,14 +13,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/holepunchto/bare-util.git"
+    "url": "git+https://github.com/holepunchto/bare-utils.git"
   },
   "author": "Holepunch",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/holepunchto/bare-util/issues"
+    "url": "https://github.com/holepunchto/bare-utils/issues"
   },
-  "homepage": "https://github.com/holepunchto/bare-util#readme",
+  "homepage": "https://github.com/holepunchto/bare-utils#readme",
   "dependencies": {
     "bare-format": "^1.0.0",
     "bare-inspect": "^3.0.0"
