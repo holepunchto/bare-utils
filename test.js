@@ -13,3 +13,15 @@ test('inherits', (t) => {
   t.ok(child instanceof Child, 'is child')
   t.ok(child instanceof Parent, 'is parent')
 })
+
+test('deprecate', (t) => {
+  function bare () {
+    console.log('bare like Beer')
+  }
+
+  util.deprecate(
+    bare,
+    'I am deprecated',
+    '[NOBEERFORYOU01]'
+  )
+})
