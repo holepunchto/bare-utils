@@ -11,5 +11,5 @@ exports.inherits = function inherits (ctor, superCtor) {
 }
 
 exports.deprecate = function deprecate (fn, msg, code) {
-  console.warn(code, 'DeprecationWarning:', msg)
+  console.warn(`[${code}]`, 'DeprecationWarning:', msg)
 }

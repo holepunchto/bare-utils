@@ -20,8 +20,8 @@ test('deprecate', (t) => {
   }
 
   util.deprecate(
-    bare,
+    bare(),
     'I am deprecated',
-    '[NOBEERFORYOU01]'
+    'NOBEERFORYOU01'
   )
 })
