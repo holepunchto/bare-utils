@@ -6,6 +6,6 @@ exports.inspect = require('bare-inspect')
 
 exports.debuglog = require('bare-debug-log')
 
-exports.inherits = function inherits (ctor, superCtor) {
+exports.inherits = function inherits(ctor, superCtor) {
   if (superCtor) Object.setPrototypeOf(ctor.prototype, superCtor.prototype)
 }
