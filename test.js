@@ -19,5 +19,7 @@ test('deprecate', (t) => {
     console.log('bare like Beer')
   }
 
-  util.deprecate(bare(), 'I am deprecated', 'NOBEERFORYOU01')
+  bare = util.deprecate(bare, 'I am deprecated', 'NOBEERFORYOU01')
+
+  bare()
 })
