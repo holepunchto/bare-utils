@@ -2,9 +2,9 @@ const test = require('brittle')
 const util = require('.')
 
 test('inherits', (t) => {
-  function Parent () {}
+  function Parent() {}
 
-  function Child () {}
+  function Child() {}
 
   util.inherits(Child, Parent)
 
