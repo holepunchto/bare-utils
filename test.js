@@ -15,13 +15,9 @@ test('inherits', (t) => {
 })
 
 test('deprecate', (t) => {
-  function bare () {
+  function bare() {
     console.log('bare like Beer')
   }
 
-  util.deprecate(
-    bare(),
-    'I am deprecated',
-    'NOBEERFORYOU01'
-  )
+  util.deprecate(bare(), 'I am deprecated', 'NOBEERFORYOU01')
 })

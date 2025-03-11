@@ -10,7 +10,7 @@ exports.inherits = function inherits(ctor, superCtor) {
   if (superCtor) Object.setPrototypeOf(ctor.prototype, superCtor.prototype)
 }
 
-exports.deprecate = function deprecate (fn, msg, code) {
+exports.deprecate = function deprecate(fn, msg, code) {
   let warned = false // Track if the warning has already been logged
 
   return function (...args) {
