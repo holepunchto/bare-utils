@@ -34,7 +34,8 @@ exports.deprecate = function deprecate(fn, msg, code) {
 
 exports.TextEncoder = class TextEncoder extends _TextEncoder {
   encode(input) {
-    return new Uint8Array(super.encode(input))
+    const buffer = super.encode(input)
+    return new Uint8Array(buffer.buffer, buffer.byteOffset, buffer.byteLength)
   }
 }
 
