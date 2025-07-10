@@ -1,3 +1,5 @@
+const { TextEncoder: _TextEncoder, TextDecoder } = require('bare-encoding')
+
 exports.format = require('bare-format')
 
 exports.formatWithOptions = exports.format.formatWithOptions
@@ -29,3 +31,11 @@ exports.deprecate = function deprecate(fn, msg, code) {
     return Reflect.apply(fn, this, args)
   }
 }
+
+exports.TextEncoder = class TextEncoder extends _TextEncoder {
+  encode(input) {
+    return new Uint8Array(super.encode(input))
+  }
+}
+
+exports.TextDecoder = TextDecoder
