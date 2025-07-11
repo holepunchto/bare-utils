@@ -23,3 +23,7 @@ test('deprecate', (t) => {
 
   bare()
 })
+
+test('TextEncoder', (t) => t.ok(util.TextEncoder))
+
+test('TextDecoder', (t) => t.ok(util.TextDecoder))

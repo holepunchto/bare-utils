@@ -1,3 +1,5 @@
+const { TextEncoder, TextDecoder } = require('bare-encoding')
+
 exports.format = require('bare-format')
 
 exports.formatWithOptions = exports.format.formatWithOptions
@@ -29,3 +31,7 @@ exports.deprecate = function deprecate(fn, msg, code) {
     return Reflect.apply(fn, this, args)
   }
 }
+
+exports.TextEncoder = TextEncoder
+
+exports.TextDecoder = TextDecoder
