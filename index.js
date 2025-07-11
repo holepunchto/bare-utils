@@ -1,4 +1,4 @@
-const { TextEncoder: _TextEncoder, TextDecoder } = require('bare-encoding')
+const { TextEncoder, TextDecoder } = require('bare-encoding')
 
 exports.format = require('bare-format')
 
@@ -32,11 +32,6 @@ exports.deprecate = function deprecate(fn, msg, code) {
   }
 }
 
-exports.TextEncoder = class TextEncoder extends _TextEncoder {
-  encode(input) {
-    const buffer = super.encode(input)
-    return new Uint8Array(buffer.buffer, buffer.byteOffset, buffer.byteLength)
-  }
-}
+exports.TextEncoder = TextEncoder
 
 exports.TextDecoder = TextDecoder
