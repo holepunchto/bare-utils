@@ -4,10 +4,12 @@
   "description": "Node.js-compatible utility functions for Bare",
   "exports": {
     "./package": "./package.json",
-    ".": "./index.js"
+    ".": "./index.js",
+    "types": "./types.js"
   },
   "files": [
-    "index.js"
+    "index.js",
+    "types.js"
   ],
   "scripts": {
     "test": "prettier . --check && bare test.js"
@@ -26,7 +28,8 @@
     "bare-debug-log": "^2.0.0",
     "bare-encoding": "^1.0.0",
     "bare-format": "^1.0.0",
-    "bare-inspect": "^3.0.0"
+    "bare-inspect": "^3.0.0",
+    "bare-type": "^1.0.6"
   },
   "devDependencies": {
     "brittle": "^3.5.0",

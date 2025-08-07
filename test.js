@@ -27,3 +27,5 @@ test('deprecate', (t) => {
 test('TextEncoder', (t) => t.ok(util.TextEncoder))
 
 test('TextDecoder', (t) => t.ok(util.TextDecoder))
+
+test('types', (t) => t.ok(util.types.isStringObject('')))
