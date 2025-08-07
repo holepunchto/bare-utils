@@ -21,9 +21,12 @@ exports.isBigUint64Array = (value) => type(value).isBigUint64Array()
 
 exports.isBooleanObject = (value) => value instanceof Boolean
 
-exports.isBoxedPrimitive = () => {
-  throw new Error('Not implemented')
-}
+exports.isBoxedPrimitive = (value) =>
+  exports.isBigIntObject(value) ||
+  exports.isBooleanObject(value) ||
+  exports.isNumberObject(value) ||
+  exports.isStringObject(value) ||
+  exports.isSymbolObject(value)
 
 exports.isCryptoKey = () => {
   throw new Error('Not implemented')
