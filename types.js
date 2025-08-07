@@ -15,11 +15,11 @@ exports.isAsyncFunction = (value) => type(value).isAsyncFunction()
 
 exports.isBigInt64Array = (value) => type(value).isBigInt64Array()
 
-exports.isBigIntObject = (value) => type(value).isBigInt()
+exports.isBigIntObject = (value) => value instanceof BigInt
 
 exports.isBigUint64Array = (value) => type(value).isBigUint64Array()
 
-exports.isBooleanObject = (value) => type(value).isBoolean()
+exports.isBooleanObject = (value) => value instanceof Boolean
 
 exports.isBoxedPrimitive = () => {
   throw new Error('Not implemented')
@@ -69,7 +69,7 @@ exports.isNativeError = () => {
   throw new Error('Not implemented')
 }
 
-exports.isNumberObject = (value) => type(value).isNumber()
+exports.isNumberObject = (value) => value instanceof Number
 
 exports.isPromise = (value) => type(value).isPromise()
 
@@ -85,9 +85,9 @@ exports.isSetIterator = () => {
 
 exports.isSharedArrayBuffer = (value) => type(value).isSharedArrayBuffer()
 
-exports.isStringObject = (value) => type(value).isString()
+exports.isStringObject = (value) => value instanceof String
 
-exports.isSymbolObject = (value) => type(value).isSymbol()
+exports.isSymbolObject = (value) => value instanceof Symbol
 
 exports.isTypedArray = (value) => type(value).isTypedArray()
 
