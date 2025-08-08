@@ -35,3 +35,5 @@ exports.deprecate = function deprecate(fn, msg, code) {
 exports.TextEncoder = TextEncoder
 
 exports.TextDecoder = TextDecoder
+
+exports.types = require('./types')
