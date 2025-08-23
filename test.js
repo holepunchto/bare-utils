@@ -66,3 +66,28 @@ test('types', (t) => {
     t.is(util.types.isSymbolObject(Object(symbol)), true)
   })
 })
+
+test('promisify', async (t) => {
+  function add(a, b, cb) {
+    setTimeout(() => cb(null, a + b), 10)
+  }
+
+  const addAsync = util.promisify(add)
+
+  const result = await addAsync(2, 3)
+  t.is(result, 5, 'promisified function resolves with result')
+
+  function fail(cb) {
+    setTimeout(() => cb(new Error('kaboom')), 10)
+  }
+
+  const failAsync = util.promisify(fail)
+
+  await t.exception(
+    async () => {
+      await failAsync()
+    },
+    /kaboom/,
+    'promisifed function rejects on error'
+  )
+})
