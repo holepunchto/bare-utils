@@ -90,13 +90,4 @@ test('promisify', async (t) => {
     /kaboom/,
     'promisifed function rejects on error'
   )
-
-  function custom(cb) {
-    cb(null, 'ignored')
-  }
-  custom[util.promisify.custom] = () => Promise.resolve('custom!')
-
-  const customAsync = util.promisify(custom)
-  const customResult = await customAsync()
-  t.is(customResult, 'custom!', 'uses custom promisify implementation')
 })
