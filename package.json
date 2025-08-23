@@ -5,7 +5,7 @@
   "exports": {
     "./package": "./package.json",
     ".": "./index.js",
-    "./types": "./types.js"
+    "./types": "./lib/types.js"
   },
   "files": [
     "index.js",
