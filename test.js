@@ -2,9 +2,9 @@ const test = require('brittle')
 const util = require('.')
 
 test('inherits', (t) => {
-  function Parent() {}
+  function Parent () {}
 
-  function Child() {}
+  function Child () {}
 
   util.inherits(Child, Parent)
 
@@ -15,11 +15,41 @@ test('inherits', (t) => {
 })
 
 test('deprecate', (t) => {
-  function bare() {
+  function bare () {
     console.log('bare like Beer')
   }
 
   bare = util.deprecate(bare, 'I am deprecated', 'NOBEERFORYOU01')
 
   bare()
+})
+
+test('promisify', async (t) => {
+  function add (a, b, cb) {
+    setTimeout(() => cb(null, a + b), 10)
+  }
+
+  const addAsync = util.promisify(add)
+
+  const result = await addAsync(2, 3)
+  t.is(result, 5, 'promisified function resolves with result')
+
+  function fail (cb) {
+    setTimeout(() => cb(new Error('kaboom')), 10)
+  }
+
+  const failAsync = util.promisify(fail)
+
+  await t.exception(async () => {
+    await failAsync()
+  }, /kaboom/, 'promisifed function rejects on error')
+
+  function custom (cb) {
+    cb(null, 'ignored')
+  }
+  custom[util.promisify.custom] = () => Promise.resolve('custom!')
+
+  const customAsync = util.promisify(custom)
+  const customResult = await customAsync()
+  t.is(customResult, 'custom!', 'uses custom promisify implementation')
 })
