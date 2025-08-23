@@ -45,9 +45,9 @@ exports.promisify = function promisify(original) {
 
   return function fn(...args) {
     return new Promise((resolve, reject) => {
-      original.call(this, ...args, (err, value) => {
+      original.call(this, ...args, (err, ...result) => {
         if (err) return reject(err)
-        resolve(value)
+        else resolve(...result)
       })
     })
   }
