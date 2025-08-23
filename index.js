@@ -40,7 +40,7 @@ exports.types = require('./types')
 
 exports.promisify = function promisify(original) {
   if (typeof original !== 'function') {
-    throw new TypeError('The "original" argument must be a function')
+    throw new Error('The "original" argument must be a function')
   }
 
   return function fn(...args) {
