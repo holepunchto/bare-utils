@@ -9,7 +9,8 @@
   },
   "files": [
     "index.js",
-    "types.js"
+    "types.js",
+    "lib"
   ],
   "scripts": {
     "test": "prettier . --check && bare test.js"
