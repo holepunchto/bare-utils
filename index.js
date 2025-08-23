@@ -8,11 +8,11 @@ exports.inspect = require('bare-inspect')
 
 exports.debuglog = require('bare-debug-log')
 
-exports.inherits = function inherits (ctor, superCtor) {
+exports.inherits = function inherits(ctor, superCtor) {
   if (superCtor) Object.setPrototypeOf(ctor.prototype, superCtor.prototype)
 }
 
-exports.deprecate = function deprecate (fn, msg, code) {
+exports.deprecate = function deprecate(fn, msg, code) {
   let warned = false
 
   return function (...args) {
@@ -40,7 +40,7 @@ exports.types = require('./types')
 
 const kCustomPromisifiedSymbol = Symbol('util.promisify.custom')
 
-function promisify (original) {
+function promisify(original) {
   if (typeof original !== 'function') {
     throw new Error('The "original" argument must be of type Function')
   }
@@ -60,7 +60,7 @@ function promisify (original) {
     })
   }
 
-  function fn (...args) {
+  function fn(...args) {
     return new Promise((resolve, reject) => {
       original.call(this, ...args, (err, value) => {
         if (err) {

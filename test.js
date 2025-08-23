@@ -2,9 +2,9 @@ const test = require('brittle')
 const util = require('.')
 
 test('inherits', (t) => {
-  function Parent () {}
+  function Parent() {}
 
-  function Child () {}
+  function Child() {}
 
   util.inherits(Child, Parent)
 
@@ -15,7 +15,7 @@ test('inherits', (t) => {
 })
 
 test('deprecate', (t) => {
-  function bare () {
+  function bare() {
     console.log('bare like Beer')
   }
 
@@ -46,7 +46,7 @@ test('types', (t) => {
   })
 
   t.test('isGeneratorObject', (t) => {
-    function * foo () {}
+    function* foo() {}
     t.is(util.types.isGeneratorObject(foo()), true)
   })
 
@@ -68,7 +68,7 @@ test('types', (t) => {
 })
 
 test('promisify', async (t) => {
-  function add (a, b, cb) {
+  function add(a, b, cb) {
     setTimeout(() => cb(null, a + b), 10)
   }
 
@@ -77,17 +77,21 @@ test('promisify', async (t) => {
   const result = await addAsync(2, 3)
   t.is(result, 5, 'promisified function resolves with result')
 
-  function fail (cb) {
+  function fail(cb) {
     setTimeout(() => cb(new Error('kaboom')), 10)
   }
 
   const failAsync = util.promisify(fail)
 
-  await t.exception(async () => {
-    await failAsync()
-  }, /kaboom/, 'promisifed function rejects on error')
+  await t.exception(
+    async () => {
+      await failAsync()
+    },
+    /kaboom/,
+    'promisifed function rejects on error'
+  )
 
-  function custom (cb) {
+  function custom(cb) {
     cb(null, 'ignored')
   }
   custom[util.promisify.custom] = () => Promise.resolve('custom!')
