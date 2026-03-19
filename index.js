@@ -7,6 +7,7 @@ exports.debuglog = require('bare-debug-log')
 exports.format = require('bare-format')
 exports.formatWithOptions = exports.format.formatWithOptions
 exports.inspect = require('bare-inspect')
+exports.styleText = require('bare-stylize')
 
 exports.deprecate = require('./lib/deprecate')
 exports.inherits = require('./lib/inherits')
