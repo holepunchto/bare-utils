@@ -30,6 +30,7 @@
     "bare-encoding": "^1.0.0",
     "bare-format": "^1.0.0",
     "bare-inspect": "^3.0.0",
+    "bare-stylize": "^0.0.1",
     "bare-type": "^1.0.6"
   },
   "devDependencies": {
